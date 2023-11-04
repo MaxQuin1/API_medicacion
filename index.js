@@ -6,7 +6,7 @@ const agregarUsuario = require('./router/usuarioRouter')
 const verMedicamentos = require('./router/medicamentosRouter')
 const verViasAdministracion = require('./router/viasRouter')
 const verUnidadMedida = require('./router/unidadMedidaRouter')
-
+const crearReceta = require('./router/recetaRouter')
 
 const app = express();
 app.use(express.json());
@@ -17,6 +17,7 @@ app.use("/agregarUsuario", agregarUsuario);
 app.use("/verMedicamentos", verMedicamentos);
 app.use("/verViasAdministracion", verViasAdministracion);
 app.use("/verUnidadMedida", verUnidadMedida);
+app.use("/crearReceta", crearReceta);
 
 app.listen(8082, () => {
   console.log("servidor iniciando...");

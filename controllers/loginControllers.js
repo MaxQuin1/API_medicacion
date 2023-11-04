@@ -6,25 +6,25 @@ function Login(request, response) {
   const password = request.body.contrasena;
 
   connection.query(
-    `SELECT * FROM usuarios WHERE correo = ? AND contrasena = ?`,
+    `SELECT id_usuario FROM usuarios WHERE correo = ? AND contrasena = ?`,
     [email, password],
     (error, result) => {
-      if (result.length == 0) {
+      if (result.length === 0) {
         response.status(200).json({
-          respuesta: "no se encontro usuario",
-          length: result.length,
+          respuesta: "No se encontró un usuario con esas credenciales",
           status: false,
         });
       } else {
+        const userId = result[0].id_usuario;
         response.status(200).json({
-          respuesta: result,
-          length: result.length,
+          respuesta: userId,
           status: true,
         });
       }
     }
   );
 }
+
 module.exports = {
   Login,
 };
