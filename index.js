@@ -6,6 +6,7 @@ const agregarUsuario = require('./router/usuarioRouter')
 const verMedicamentos = require('./router/medicamentosRouter')
 const verViasAdministracion = require('./router/viasRouter')
 const verUnidadMedida = require('./router/unidadMedidaRouter')
+const verReceta = require('./router/recetaRouter')
 const crearReceta = require('./router/recetaRouter')
 
 const app = express();
@@ -17,6 +18,7 @@ app.use("/agregarUsuario", agregarUsuario);
 app.use("/verMedicamentos", verMedicamentos);
 app.use("/verViasAdministracion", verViasAdministracion);
 app.use("/verUnidadMedida", verUnidadMedida);
+app.use("/verReceta", verReceta);
 app.use("/crearReceta", crearReceta);
 
 app.listen(8082, () => {

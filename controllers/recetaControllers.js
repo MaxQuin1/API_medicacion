@@ -24,6 +24,25 @@ function crearReceta(request, response) {
   );
 }
 
+function verRecetas(request, response) {
+  const usuario = request.params.id_usuario;
+  connection.query(
+    `CALL p_verRecetaUsuario(?);`,
+    [usuario],
+    (error, results) => {
+      if (error) {
+        console.error("Error al obtener los datos:", error);
+        response.status(500).json({ error: "Error" });
+      } else {
+        const flatResults = results[0];
+
+        response.status(200).json(flatResults);
+      }
+    }
+  );
+}
+
 module.exports = {
   crearReceta,
+  verRecetas,
 };
