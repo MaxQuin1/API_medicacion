@@ -4,6 +4,7 @@ const cors = require("cors");
 const login = require('./router/loginRouter')
 const agregarUsuario = require('./router/usuarioRouter')
 const verMedicamentos = require('./router/medicamentosRouter')
+const crearMedicamentos = require('./router/medicamentosRouter')
 const verViasAdministracion = require('./router/viasRouter')
 const verUnidadMedida = require('./router/unidadMedidaRouter')
 const verReceta = require('./router/recetaRouter')
@@ -16,6 +17,7 @@ app.use(cors());
 app.use("/login", login);
 app.use("/agregarUsuario", agregarUsuario);
 app.use("/verMedicamentos", verMedicamentos);
+app.use("/crearMedicamentos", crearMedicamentos);
 app.use("/verViasAdministracion", verViasAdministracion);
 app.use("/verUnidadMedida", verUnidadMedida);
 app.use("/verReceta", verReceta);

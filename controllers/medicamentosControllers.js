@@ -11,6 +11,25 @@ function verMedicamentos(request, response) {
   });
 }
 
+function crearMedicamento(request, response) {
+  const medicamento = request.body.medicamento
+
+  connection.query(
+    `INSERT INTO medicamentos(nombre_medicmamento) VALUES
+    (?)`,
+    [medicamento],
+    (error, results) => {
+      if (error) {
+        console.error("Error al insertar el medicamento:", error);
+        response.status(500).json({ error: "Error al crear el medicamento" });
+      } else {
+        response.status(200).json(results);
+      }
+    }
+  );
+}
+
 module.exports = {
   verMedicamentos,
+  crearMedicamento,
 };
