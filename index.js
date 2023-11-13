@@ -9,6 +9,9 @@ const verViasAdministracion = require('./router/viasRouter')
 const verUnidadMedida = require('./router/unidadMedidaRouter')
 const verReceta = require('./router/recetaRouter')
 const crearReceta = require('./router/recetaRouter')
+const modificarFecha = require('./router/fechaRouter')
+const eliminarFecha = require('./router/fechaRouter')
+const crearComentario = require('./router/comentarioRouter')
 
 const app = express();
 app.use(express.json());
@@ -22,6 +25,9 @@ app.use("/verViasAdministracion", verViasAdministracion);
 app.use("/verUnidadMedida", verUnidadMedida);
 app.use("/verReceta", verReceta);
 app.use("/crearReceta", crearReceta);
+app.use("/modificarFecha", modificarFecha);
+app.use("/eliminarFecha", eliminarFecha);
+app.use("/crearComentario", crearComentario);
 
 app.listen(8082, () => {
   console.log("servidor iniciando...");
