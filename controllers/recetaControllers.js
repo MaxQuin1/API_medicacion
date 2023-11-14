@@ -9,10 +9,11 @@ function crearReceta(request, response) {
   const cantidad = request.body.cantidad;
   const dias = request.body.dias;
   const intervalo = request.body.intervalo;
+  const dosis = request.body.dosis;
 
   connection.query(
-    `CALL p_crearReceta(?,?,?,?,?,?,?)`,
-    [usuario, medicamento, via, unidad, cantidad, dias, intervalo],
+    `CALL p_crearReceta(?,?,?,?,?,?,?,?)`,
+    [usuario, medicamento, via, unidad, cantidad, dias, intervalo, dosis],
     (error, results) => {
       if (error) {
         console.error("Error al ejecutar el procedimiento almacenado:", error);
@@ -41,9 +42,30 @@ function verRecetas(request, response) {
     }
   );
 }
-  
 
+function editarRecetas(request, response) {
+  const id = request.params.id
+  const dosis = request.body.dosis;
+  
+  connection.query(
+    `UPDATE receta
+     SET dosis = ?
+     WHERE id_receta = ?`,
+    [dosis, id],
+    (error, results) => {
+      if (error) {
+        console.error("Error al actualizar los datos:", error);
+        response.status(500).json({ error: "Error" });
+      } else {
+        console.log('Recetas actualizadas:', results);
+        response.status(200).json(results);
+      }
+    }
+  );  
+}
+  
 module.exports = {
   crearReceta,
   verRecetas,
+  editarRecetas,
 };

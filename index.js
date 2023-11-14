@@ -9,6 +9,7 @@ const verViasAdministracion = require('./router/viasRouter')
 const verUnidadMedida = require('./router/unidadMedidaRouter')
 const verReceta = require('./router/recetaRouter')
 const crearReceta = require('./router/recetaRouter')
+const editarReceta = require('./router/recetaRouter')
 const modificarFecha = require('./router/fechaRouter')
 const eliminarFecha = require('./router/fechaRouter')
 const crearComentario = require('./router/comentarioRouter')
@@ -25,6 +26,7 @@ app.use("/verViasAdministracion", verViasAdministracion);
 app.use("/verUnidadMedida", verUnidadMedida);
 app.use("/verReceta", verReceta);
 app.use("/crearReceta", crearReceta);
+app.use("/editarReceta", editarReceta);
 app.use("/modificarFecha", modificarFecha);
 app.use("/eliminarFecha", eliminarFecha);
 app.use("/crearComentario", crearComentario);

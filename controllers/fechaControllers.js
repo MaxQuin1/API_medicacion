@@ -7,8 +7,7 @@ function actualizarFecha(request, response) {
   connection.query(
     `UPDATE receta
        SET fecha = NOW()
-       WHERE id_receta = ?;
-      `,
+       WHERE id_receta = ?;`,
     [receta],
     (error, results) => {
       if (error) {
