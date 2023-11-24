@@ -7,10 +7,10 @@ app.use(express.json());
 app.use(cors());
 
 const connection = mysql.createConnection({
-  server: "localhost",
-  user: "root",
-  password: "",
-  database: "medicacion",
+  host: "mysql-maxquin.alwaysdata.net",
+  user: "maxquin",
+  password: "HolaMundo23",
+  database: "maxquin_medicacion",
 });
 
 connection.connect(function (error) {

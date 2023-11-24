@@ -10,10 +10,11 @@ function crearReceta(request, response) {
   const dias = request.body.dias;
   const intervalo = request.body.intervalo;
   const dosis = request.body.dosis;
+  const comentario = request.body.comentario;
 
   connection.query(
-    `CALL p_crearReceta(?,?,?,?,?,?,?,?)`,
-    [usuario, medicamento, via, unidad, cantidad, dias, intervalo, dosis],
+    `CALL p_crearReceta(?,?,?,?,?,?,?,?,?)`,
+    [usuario, medicamento, via, unidad, cantidad, dias, intervalo, dosis, comentario],
     (error, results) => {
       if (error) {
         console.error("Error al ejecutar el procedimiento almacenado:", error);
